@@ -137,12 +137,12 @@ public class ImageTool {
 		}
 	}
 
-	public void resize(BufferedImage img, int height, int width) {
+	public void resize(int height, int width) {
 		try {
 			if (outputImage == null)
 				outputImage = ImageIO.read(inputFile);
 
-			Image tmp = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+			Image tmp = outputImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 			BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g2d = resized.createGraphics();
 			g2d.drawImage(tmp, 0, 0, null);
